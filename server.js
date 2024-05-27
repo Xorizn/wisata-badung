@@ -15,6 +15,7 @@ app.use(express.static("public"));
 app.use(bodyParser.json());
 
 //main
+app.use("/pariwisata", express.static(path.join(__dirname, "public")));
 app.use("/", mainrouter);
 app.use("/api", apirouter);
 
