@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= wisata.title %></title>
+  <link rel="stylesheet" href="path/to/your/css/styles.css">
+</head>
+<body>
+  <div class="wisata-detail">
+    <h1><%= wisata.title %></h1>
+    <p><%= wisata.desc %></p>
+    <p>Price: <%= wisata.price %></p>
+    <p><%= wisata.price_desc %></p>
+    <p>Rating: <%= wisata.rating %></p>
+    <p>Location: <%= wisata.map %></p>
+  </div>
+  <a href="/wisata">Back to List</a>
+</body>
+</html>
