@@ -6,7 +6,7 @@ const path = require("path");
 var mainrouter = require("./routes/main.js"),
   apirouter = require("./routes/api.js");
 
-const port = 3000;
+const PORT = process.env.PORT || 8080 || 5000 || 3000;
 const app = express();
 
 app.set("view engine", "ejs");
@@ -27,8 +27,8 @@ app.use(function (req, res, next) {
   res.status(404).render("404", { nav: '404' });
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
 
 module.exports = app;
