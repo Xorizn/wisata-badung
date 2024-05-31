@@ -15,7 +15,6 @@ app.use(express.static("public"));
 app.use(bodyParser.json());
 
 //main
-app.use("/pariwisata", express.static(path.join(__dirname, "public")));
 app.use("/", mainrouter);
 app.use("/api", apirouter);
 
@@ -24,6 +23,14 @@ app.use("/pariwisata/js", express.static("public/js"));
 app.use("/pariwisata/css", express.static("public/css"));
 app.use("/pariwisata/fonts", express.static("public/fonts"));
 app.use("/pariwisata/images", express.static("public/images"));
+app.use("/penginapan/js", express.static("public/js"));
+app.use("/penginapan/css", express.static("public/css"));
+app.use("/penginapan/fonts", express.static("public/fonts"));
+app.use("/penginapan/images", express.static("public/images"));
+app.use("/restoran/js", express.static("public/js"));
+app.use("/restoran/css", express.static("public/css"));
+app.use("/restoran/fonts", express.static("public/fonts"));
+app.use("/restoran/images", express.static("public/images"));
 app.use(function (req, res, next) {
   res.status(404).render("404", { nav: '404' });
 });

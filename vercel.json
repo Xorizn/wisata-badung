@@ -48,6 +48,38 @@
       "dest": "/public/js/$1"
     },
     {
+      "src": "/restoran/css/(.*)",
+      "dest": "/public/css/$1"
+    },
+    {
+      "src": "/restoran/fonts/(.*)",
+      "dest": "/public/fonts/$1"
+    },
+    {
+      "src": "/restoran/images/(.*)",
+      "dest": "/public/images/$1"
+    },
+    {
+      "src": "/restoran/js/(.*)",
+      "dest": "/public/js/$1"
+    },
+    {
+      "src": "/penginapan/css/(.*)",
+      "dest": "/public/css/$1"
+    },
+    {
+      "src": "/penginapan/fonts/(.*)",
+      "dest": "/public/fonts/$1"
+    },
+    {
+      "src": "/penginapan/images/(.*)",
+      "dest": "/public/images/$1"
+    },
+    {
+      "src": "/penginapan/js/(.*)",
+      "dest": "/public/js/$1"
+    },
+    {
       "src": "/(.*)",
       "dest": "server.js"
     }

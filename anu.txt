@@ -1,0 +1,60 @@
+ini di index.ejs
+<div class="col-lg-10 px-4">
+            <div class="form-content-in d-lg-flex align-items-center">
+
+              <div class="form-group me-2">
+                <div class="input-box">
+                  <input type="text" />
+                
+                </div>
+              </div>
+              <div class="form-group mb-0 text-center">
+                <a href="#" class="nir-btn w-100"
+                  ><i class="fa fa-search mr-2"></i> Search Now</a
+                >
+              </div>
+            </div>
+          </div>
+
+ini di app.js
+app.get("/pariwisata", (req, res) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = 10;
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
+
+  const results = {};
+  if (endIndex < data.length) {
+    results.next = {
+      page: page + 1,
+      limit: limit,
+    };
+  }
+  if (startIndex > 0) {
+    results.previous = {
+      page: page - 1,
+      limit: limit,
+    };
+  }
+  results.results = data.slice(startIndex, endIndex);
+  res.render("wisatas", {
+    wisatas: results.results,
+    next: results.next,
+    previous: results.previous,
+    nav: "pariwisata",
+  });
+});
+
+bagimana caranya supaya agar ketika menekan tombol search di index/halaman home, maka akan langsung mencari data dari user dan menampilkannya di /pariwisata, tapi hanya saat ada req.query akan ditampilkan, jadi buat if query search, dan merender file ejs baru, yaitu data_search.ejs
+
+datanya seperti ini
+[{
+    title: "",
+    desc: "",
+    image: [],
+    price: "",
+    price_desc: "",
+    rating: "",
+    map: "",
+    maplink:"",
+  },.....]
