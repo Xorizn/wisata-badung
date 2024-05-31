@@ -32,63 +32,13 @@
       </div>
       <div class="dot-overlay"></div>
     </section>
-    
-    <div class="form-main">
-      <div
-        class="section-shape top-0"
-        style="background-image: url(images/shape-pat.png)"
-      ></div>
-      <div class="container">
-        <div
-          class="row align-items-center form-content rounded position-relative ms-5 me-5"
-        >
-          <div class="col-lg-2 p-0">
-            <h4
-              class="form-title form-title1 text-center p-4 py-5 white bg-theme mb-0 rounded-start d-lg-flex align-items-center"
-            >
-              <i class="icon-location-pin fs-1 me-1"></i> Pesan Sekarang
-            </h4>
-          </div>
-          <div class="col-lg-10 px-4">
-            <div class="form-content-in d-lg-flex align-items-center">
-              <div class="form-group me-2">
-                <div class="input-box">
-                  <select class="niceSelect">
-                    <% wisatas.forEach((wisata, ind) => { %>
-                      <option value="<%= ind + 1 %>"><%= wisata.title %></option>
-                      <% }); %>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group me-2">
-                <div class="input-box">
-                  <input type="date" name="date" />
-                </div>
-              </div>
-              <div class="form-group me-2">
-                <div class="input-box">
-                  <select class="niceSelect">
-                    <option value="1">Durasi</option>
-                    <option value="2">5 days</option>
-                    <option value="3">7 Days</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group mb-0 text-center">
-                <a href="#" class="nir-btn w-100"
-                  ><i class="fa fa-search mr-2"></i> Pesan</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <section class="trending pt-6 pb-6 bg-lgrey">
       <div class="container">
         <div class="destination-list">
-          <% wisatas.forEach(wisata => { %>
+          <% if (wisatas.length > 0) { %>
+
+            <% wisatas.forEach(wisata => { %>
           <div
             class="trend-full bg-white rounded box-shadow overflow-hidden p-4 mb-4"
           >
@@ -135,7 +85,12 @@
               </div>
             </div>
           </div>
-          <% }); %> <% if (previous) { %>
+          <% }); %>
+
+            <% } else { %>
+            <h1>No results found</h1>
+          <% } %>
+          <% if (previous) { %>
           <div
             class="text-center"
             onclick="location.href='?page=<%= previous.page %>'"

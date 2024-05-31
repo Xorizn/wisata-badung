@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zxx">
   <head>
     <%- include('partials/head') %>
-    <title>Jelajahi Pesona Badung</title>
+    <title>Badung Tourism Navigator</title>
   </head>
   <body>
     <%- include('partials/nav') %>
@@ -11,51 +11,90 @@
       <div class="slider top50">
         <div class="swiper-container">
           <div class="swiper-wrapper">
-
-             <% rating_tinggi.forEach(wisata => { %>
-              <div class="swiper-slide">
-                <div class="slide-inner">
-                  <div
-                    class="slide-image"
-                    style="background-image: url('<%= wisata.image[0] %>')"
-                  ></div>
-                  <div class="swiper-content">
-                    <div class="entry-meta mb-2">
-                      <h5 class="entry-category mb-0 white">Wisata Dengan Rating Tertinggi</h5>
-                    </div>
-                    <h1 class="mb-2">
-                      <a href="/pariwisata/<%= wisata.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>" class="white"
-                        ><%= wisata.title %></a
-                      >
-                    </h1>
-                    <p class="white mb-4">
-                      <%= wisata.desc %>
-                    </p>
-                    <a href="/pariwisata/<%= wisata.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>" class="nir-btn">Kunjungi</a>
+            <% rating_tinggi.forEach(wisata => { %>
+            <div class="swiper-slide">
+              <div class="slide-inner">
+                <div
+                  class="slide-image"
+                  style="background-image: url('<%= wisata.image[0] %>')"
+                ></div>
+                <div class="swiper-content">
+                  <div class="entry-meta mb-2">
+                    <h5 class="entry-category mb-0 white">
+                      Wisata Dengan Rating Tertinggi
+                    </h5>
                   </div>
-                  <div class="dot-overlay"></div>
+                  <h1 class="mb-2">
+                    <a
+                      href="/pariwisata/<%= wisata.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>"
+                      class="white"
+                      ><%= wisata.title %></a
+                    >
+                  </h1>
+                  <p class="white mb-4"><%= wisata.desc %></p>
+                  <a
+                    href="/pariwisata/<%= wisata.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>"
+                    class="nir-btn"
+                    >Kunjungi</a
+                  >
                 </div>
+                <div class="dot-overlay"></div>
               </div>
-              <% }) %>
-
-            
-            
+            </div>
+            <% }) %>
           </div>
         </div>
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </section>
+    <div class="form-main">
+      <div
+        class="section-shape top-0"
+        style="background-image: url(images/shape-pat.png)"
+      ></div>
+      <div class="container">
+        <div
+          class="row align-items-center form-content rounded position-relative ms-5 me-5"
+        >
+          <div class="col-lg-2 p-0">
+            <h4
+              class="form-title form-title1 text-center p-4 py-5 white bg-theme mb-0 rounded-start d-lg-flex align-items-center"
+            >
+              <i class="icon-location-pin fs-1 me-1"></i> Mau Pergi Kemana?
+            </h4>
+          </div>
+          <div class="col-lg-10 px-4">
+            <div class="form-content-in d-lg-flex align-items-center">
+              <form action="/pariwisata" method="GET" class="d-flex w-100">
+                <div class="form-group me-2">
+                  <div class="input-box">
+                    <input type="text" name="search" placeholder="Cari..." />
+                  </div>
+                </div>
+                <div class="form-group mb-0 text-center">
+                  <button type="submit" class="nir-btn w-100">
+                    <i class="fa fa-search mr-2"></i> Cari
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <section class="trending pb-3 pt-10">
       <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
-          <h4 class="mb-1 theme1">Jelajahi Pesona Badung</h4>
+          <h4 class="mb-1 theme1">Badung Tourism Navigator</h4>
           <h2 class="mb-1">
             Konsep <span class="theme">Tri Hita Karana</span>
           </h2>
           <p>
-            Memperhatikan dan menjaga hubungan baik dengan Tuhan, sesama manusia dan dengan lingkungan. Untuk terus meningkatkan dan mengembangkan potensi 
+            Memperhatikan dan menjaga hubungan baik dengan Tuhan, sesama manusia
+            dan dengan lingkungan. Untuk terus meningkatkan dan mengembangkan
+            potensi
             <span class="mb-1 theme1">wisata Kabupaten Badung </span>
           </p>
         </div>
@@ -73,7 +112,6 @@
                       class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100 z-index"
                     >
                       <div class="trend-content-title">
-                        
                         <h3 class="mb-0 white">Pantai</h3>
                       </div>
                     </div>
@@ -92,10 +130,8 @@
                       class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100"
                     >
                       <div class="trend-content-title">
-                        
                         <h3 class="mb-0 white">GWK</h3>
                       </div>
-                     
                     </div>
                     <div class="color-overlay"></div>
                   </div>
@@ -124,14 +160,16 @@
           <div class="col-lg-5 mb-4">
             <div class="trend-item1">
               <div class="trend-image position-relative rounded">
-                <img src="https://www.rentalmobilbali.net/wp-content/uploads/2021/03/Air-Terjun-Nungnung-Facebook.jpg" alt="image" />
+                <img
+                  src="https://www.rentalmobilbali.net/wp-content/uploads/2021/03/Air-Terjun-Nungnung-Facebook.jpg"
+                  alt="image"
+                />
                 <div
                   class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100 z-index"
                 >
                   <div class="trend-content-title">
                     <h3 class="mb-0 white">Air Terjun</h3>
                   </div>
-
                 </div>
                 <div class="color-overlay"></div>
               </div>
@@ -151,11 +189,10 @@
           <div class="col-lg-7">
             <div class="section-title text-center text-lg-start">
               <h4 class="mb-1 theme1">Jelajahi</h4>
-              <h2 class="mb-1">
-                Pesona <span class="theme">Badung</span>
-              </h2>
+              <h2 class="mb-1">Pesona <span class="theme">Badung</span></h2>
               <p>
-                Badung Memiliki Sejumlah Wisata Yang Mempesona Dan Cocok Dijadikan Sebagai Destinasi Wisata Pada Hari Libur
+                Badung Memiliki Sejumlah Wisata Yang Mempesona Dan Cocok
+                Dijadikan Sebagai Destinasi Wisata Pada Hari Libur
               </p>
             </div>
           </div>
@@ -163,47 +200,43 @@
         </div>
         <div class="trend-box">
           <div class="row item-slider">
-
             <% data_home.forEach(wisata => { %>
 
-              <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
-                <div class="trend-item rounded box-shadow bg-white">
-                  <div class="trend-image position-relative">
-                    <img
-                      src="<%= wisata.image[0] %>"
-                      alt="image"
-                      class=""
-                    />
-                    <div class="color-overlay"></div>
-                  </div>
-                  <div class="trend-content p-4 pt-5 position-relative">
-                   
-                   
-                    <h3 class="mb-1">
-                      <a href="/pariwisata/<%= wisata.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>"><%= wisata.title %></a>
-                    </h3>
-                    <div class="rating-main d-flex align-items-center pb-2">
-                      <div class="rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="ms-2"><%= wisata.rating %></span>
-                      </div>
+            <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+              <div class="trend-item rounded box-shadow bg-white">
+                <div class="trend-image position-relative">
+                  <img src="<%= wisata.image[0] %>" alt="image" class="" />
+                  <div class="color-overlay"></div>
+                </div>
+                <div class="trend-content p-4 pt-5 position-relative">
+                  <h3 class="mb-1">
+                    <a
+                      href="/pariwisata/<%= wisata.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>"
+                      ><%= wisata.title %></a
+                    >
+                  </h3>
+                  <div class="rating-main d-flex align-items-center pb-2">
+                    <div class="rating">
+                      <span class="fa fa-star checked"></span>
+                      <span class="ms-2"><%= wisata.rating %></span>
                     </div>
-                    <p class="border-b pb-2 mb-2">
-                      <%= wisata.desc %>
-                    </p>
-                    <div class="entry-meta">
-                      <div class="entry-author d-flex align-items-center">
-                        <p class="mb-0">
-                          <span class="theme fw-bold fs-5"> <%= wisata.price === '-' ? 'Gratis' : 'Rp. ' + wisata.price %></span> | Per
-                          orang
-                        </p>
-                      </div>
+                  </div>
+                  <p class="border-b pb-2 mb-2"><%= wisata.desc.slice(0, 150) + '...'; %></p>
+                  <div class="entry-meta">
+                    <div class="entry-author d-flex align-items-center">
+                      <p class="mb-0">
+                        <span class="theme fw-bold fs-5">
+                          <%= wisata.price === '-' ? 'Gratis' : 'Rp. ' +
+                          wisata.price %></span
+                        >
+                        | Per orang
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
-              <% }); %>
-
+            </div>
+            <% }); %>
           </div>
         </div>
         <div class="col-lg-12 text-center">
@@ -215,57 +248,176 @@
     <section class="trending pb-9">
       <div class="container">
         <div class="section-title mb-6 w-75 mx-auto text-center">
-          <h4 class="mb-1 theme1">Top 3 Wisata Yang Paling Menarik Berdasarkan Rating Tertinggi</h4>
-          
+          <h4 class="mb-1 theme1">
+            Top 3 Restoran Yang Paling Menarik Berdasarkan Rating Tertinggi
+          </h4>
         </div>
         <div class="trend-box">
           <div class="row">
-            
-            <% rating_tinggi.forEach(wisata => { %>
-              
-              <div class="col-lg-4 mb-4">
-                <div class="trend-item1 rounded box-shadow bg-white">
-                  <div class="trend-image position-relative">
-                    <img
-                      src="<%= wisata.image[0] %>"
-                      alt="image"
-                      class=""
-                    />
-                    <div class="trend-content1 p-4">
-                      <h5 class="theme1 mb-1">
-                        <i class="flaticon-location-pin"></i> Badung
-                      </h5>
-                      <h3 class="mb-1 white">
-                        <a href="/pariwisata/<%= wisata.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>" class="white"><%= wisata.title %></a>
-                      </h3>
-                      <div class="rating-main d-flex align-items-center pb-2">
-                        <div class="rating">
-                          <span class="fa fa-star checked"></span>
-                          <span class="ms-2 white"><%= wisata.rating %></span>
-                        </div>
-                      </div>
-                      <div
-                        class="entry-meta d-flex align-items-center justify-content-between"
+            <% restoran.forEach(wisata => { %>
+
+            <div class="col-lg-4 mb-4">
+              <div class="trend-item1 rounded box-shadow bg-white">
+                <div class="trend-image position-relative">
+                  <img src="<%= wisata.image[0] %>" alt="image" class="" />
+                  <div class="trend-content1 p-4">
+                    <h5 class="theme1 mb-1">
+                      <i class="flaticon-location-pin"></i> Badung
+                    </h5>
+                    <h3 class="mb-1 white">
+                      <a
+                        href="/restoran/<%= wisata.nama.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>"
+                        class="white"
+                        ><%= wisata.nama %></a
                       >
-                        <div class="entry-author d-flex align-items-center">
-                          <p class="mb-0 white">
-                            <span class="theme1 fw-bold fs-5"> <%= wisata.price === '-' ? 'Gratis' : 'Rp. ' + wisata.price %></span> |
-                            Per orang
-                          </p>
-                        </div>
-                        <div class="entry-author">
-                          <i class="icon-location-pin white"></i>
-                          <span class="fw-bold white"> Kab. Badung</span>
-                        </div>
+                    </h3>
+                    <div class="rating-main d-flex align-items-center pb-2">
+                      <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="ms-2 white"><%= wisata.rating %></span>
                       </div>
                     </div>
-                    <div class="overlay"></div>
+                    <div
+                      class="entry-meta d-flex align-items-center justify-content-between"
+                    >
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <div class="entry-author">
+                        <i class="icon-location-pin white"></i>
+                        <span class="fw-bold white"> Kab. Badung</span>
+                      </div>
+                    </div>
                   </div>
+                  <div class="overlay"></div>
                 </div>
               </div>
-              
-              <% }); %>
-            
+            </div>
+
+            <% }); %>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trending pb-9">
+      <div class="container">
+        <div class="section-title mb-6 w-75 mx-auto text-center">
+          <h4 class="mb-1 theme1">
+            Top 3 Penginapan Yang Paling Menarik Berdasarkan Rating Tertinggi
+          </h4>
+        </div>
+        <div class="trend-box">
+          <div class="row">
+            <% penginapan.forEach(wisata => { %>
+
+            <div class="col-lg-4 mb-4">
+              <div class="trend-item1 rounded box-shadow bg-white">
+                <div class="trend-image position-relative">
+                  <img src="<%= wisata.image[0] %>" alt="image" class="" />
+                  <div class="trend-content1 p-4">
+                    <h5 class="theme1 mb-1">
+                      <i class="flaticon-location-pin"></i> Badung
+                    </h5>
+                    <h3 class="mb-1 white">
+                      <a
+                        href="/penginapan/<%= wisata.nama.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>"
+                        class="white"
+                        ><%= wisata.nama %></a
+                      >
+                    </h3>
+                    <div class="rating-main d-flex align-items-center pb-2">
+                      <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="ms-2 white"><%= wisata.rating %></span>
+                      </div>
+                    </div>
+                    <div
+                      class="entry-meta d-flex align-items-center justify-content-between"
+                    >
+                      <div class="entry-author d-flex align-items-center">
+                        <p class="mb-0 white">
+                          <span class="theme1 fw-bold fs-5">
+                            <%= wisata.price === '-' ? 'Gratis' : 'Rp. ' +
+                            wisata.price %></span
+                          >
+                          | Per malam
+                        </p>
+                      </div>
+                      <div class="entry-author">
+                        <i class="icon-location-pin white"></i>
+                        <span class="fw-bold white"> Kab. Badung</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="overlay"></div>
+                </div>
+              </div>
+            </div>
+
+            <% }); %>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trending pb-9">
+      <div class="container">
+        <div class="section-title mb-6 w-75 mx-auto text-center">
+          <h4 class="mb-1 theme1">
+            Top 3 Wisata Yang Paling Menarik Berdasarkan Rating Tertinggi
+          </h4>
+        </div>
+        <div class="trend-box">
+          <div class="row">
+            <% rating_tinggi.forEach(wisata => { %>
+
+            <div class="col-lg-4 mb-4">
+              <div class="trend-item1 rounded box-shadow bg-white">
+                <div class="trend-image position-relative">
+                  <img src="<%= wisata.image[0] %>" alt="image" class="" />
+                  <div class="trend-content1 p-4">
+                    <h5 class="theme1 mb-1">
+                      <i class="flaticon-location-pin"></i> Badung
+                    </h5>
+                    <h3 class="mb-1 white">
+                      <a
+                        href="/pariwisata/<%= wisata.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>"
+                        class="white"
+                        ><%= wisata.title %></a
+                      >
+                    </h3>
+                    <div class="rating-main d-flex align-items-center pb-2">
+                      <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="ms-2 white"><%= wisata.rating %></span>
+                      </div>
+                    </div>
+                    <div
+                      class="entry-meta d-flex align-items-center justify-content-between"
+                    >
+                      <div class="entry-author d-flex align-items-center">
+                        <p class="mb-0 white">
+                          <span class="theme1 fw-bold fs-5">
+                            <%= wisata.price === '-' ? 'Gratis' : 'Rp. ' +
+                            wisata.price %></span
+                          >
+                          | Per orang
+                        </p>
+                      </div>
+                      <div class="entry-author">
+                        <i class="icon-location-pin white"></i>
+                        <span class="fw-bold white"> Kab. Badung</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="overlay"></div>
+                </div>
+              </div>
+            </div>
+
+            <% }); %>
           </div>
         </div>
       </div>

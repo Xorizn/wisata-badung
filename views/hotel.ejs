@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zxx">
   <head>
     <%- include('partials/head') %>
-    <title>Pariwisata | Badung Tourism Navigator</title>
+    <title>Penginapan | Badung Tourism Navigator</title>
   </head>
   <body>
     <%- include('partials/nav') %>
 
     <section
       class="breadcrumb-main pb-20 pt-14"
-      style="background-image: url('https://images.unsplash.com/photo-1596273214323-a8486cce7c9b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')"
+      style="background-image: url('<%= wisatas[0].image[0] %>')"
     >
       <div
         class="section-shape section-shape1 top-inherit bottom-0"
@@ -18,12 +18,12 @@
       <div class="breadcrumb-outer">
         <div class="container">
           <div class="breadcrumb-content text-center">
-            <h1 class="mb-3">Pariwisata Terbaik</h1>
+            <h1 class="mb-3">Penginapan Terbaik</h1>
             <nav aria-label="breadcrumb" class="d-block">
               <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Beranda</a></li>
                 <li class="breadcrumb-item active" aria-current="page">
-                  Pariwisata
+                  Penginapan
                 </li>
               </ul>
             </nav>
@@ -32,7 +32,6 @@
       </div>
       <div class="dot-overlay"></div>
     </section>
-    
     <div class="form-main">
       <div
         class="section-shape top-0"
@@ -46,7 +45,7 @@
             <h4
               class="form-title form-title1 text-center p-4 py-5 white bg-theme mb-0 rounded-start d-lg-flex align-items-center"
             >
-              <i class="icon-location-pin fs-1 me-1"></i> Pesan Sekarang
+              <i class="icon-building fs-1 me-1"></i> Penginapan
             </h4>
           </div>
           <div class="col-lg-10 px-4">
@@ -55,7 +54,7 @@
                 <div class="input-box">
                   <select class="niceSelect">
                     <% wisatas.forEach((wisata, ind) => { %>
-                      <option value="<%= ind + 1 %>"><%= wisata.title %></option>
+                      <option value="<%= ind + 1 %>"><%= wisata.nama %></option>
                       <% }); %>
                   </select>
                 </div>
@@ -69,14 +68,19 @@
                 <div class="input-box">
                   <select class="niceSelect">
                     <option value="1">Durasi</option>
-                    <option value="2">5 days</option>
-                    <option value="3">7 Days</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group me-2">
+                <div class="input-box">
+                  <select class="niceSelect">
+                    <option value="1">Tamu Dan Kamar</option>
                   </select>
                 </div>
               </div>
               <div class="form-group mb-0 text-center">
                 <a href="#" class="nir-btn w-100"
-                  ><i class="fa fa-search mr-2"></i> Pesan</a
+                  ><i class="fa fa-search mr-2"></i> Cari</a
                 >
               </div>
             </div>
@@ -96,7 +100,7 @@
               <div class="col-lg-4 col-md-3">
                 <div class="trend-item2 rounded">
                   <a
-                    href="/pariwisata/<%= wisata.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>"
+                    href="/penginapan/<%= wisata.nama.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>"
                     style="
                       background-image: url('<%= wisata.image[0] %>');
                     "
@@ -109,7 +113,7 @@
                   class="trend-content position-relative text-md-start text-center"
                 >
                   <h3 class="mb-1">
-                    <a href="/pariwisata/<%= wisata.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>"><%= wisata.title %></a>
+                    <a href="/penginapan/<%= wisata.nama.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>"><%= wisata.nama %></a>
                   </h3>
                   <h6 class="theme mb-0">
                     <i class="icon-location-pin"></i> <%= wisata.map %>
@@ -124,13 +128,12 @@
                   </div>
 
                   <div class="trend-price my-2">
-                    <span class="mb-0">Mulai Dari</span>
+                    <span class="mb-0">Harga/kamar/malam mulai dari</span>
                     <h3 class="mb-0">
                       <%= wisata.price === '-' ? 'Gratis' : 'Rp. ' + wisata.price %>
                     </h3>
-                    <small>Per Orang</small>
                   </div>
-                  <a href="/pariwisata/<%= wisata.title.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>" class="nir-btn">Kunjungi</a>
+                  <a href="/penginapan/<%= wisata.nama.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '') %>" class="nir-btn">Kunjungi</a>
                 </div>
               </div>
             </div>
